@@ -4,7 +4,7 @@ class Graph:
    
     def __init__(self,vertices): 
 
-        self.V= vertices  
+        self.V = vertices  
         self.graph = defaultdict(list)  
    
     def addEdge(self,u,v): 
@@ -15,7 +15,7 @@ class Graph:
         visited[u]= True
         path.append(u) 
 
-        if u ==d: 
+        if u == d: 
             print(path)
         else: 
             for i in self.graph[u]: 
@@ -32,24 +32,26 @@ class Graph:
    
    
    
-g = Graph(9) 
+g = Graph(10) 
 
-g.addEdge(0, 1) 
-g.addEdge(0, 7)
-g.addEdge(1, 7)
-g.addEdge(1, 2)
-g.addEdge(7, 6)
-g.addEdge(7, 8)
-g.addEdge(8, 6)
-g.addEdge(8, 2)
+g.addEdge(1, 2) 
+g.addEdge(1, 8)
+g.addEdge(2, 8)
 g.addEdge(2, 3)
-g.addEdge(2, 5)
-g.addEdge(6, 5)
+g.addEdge(8, 7)
+g.addEdge(8, 9)
+g.addEdge(9, 7)
+g.addEdge(9, 3)
 g.addEdge(3, 4)
-g.addEdge(3, 5)
+g.addEdge(3, 6)
+g.addEdge(7, 6)
+g.addEdge(4, 5)
 g.addEdge(4, 6)
+g.addEdge(5, 6)
 
    
 a = int(input("Digite o inicio\n"))
 b = int(input("Digite o fim\n"))
-g.printAllPaths(a,b) 
+for i in range(b-1):
+    g.printAllPaths(a,b)
+    a += 1
